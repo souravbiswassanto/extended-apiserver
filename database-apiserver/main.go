@@ -20,7 +20,7 @@ func main() {
 	flag.Parse()
 
 	fs := afero.NewOsFs()
-	store, err := certstore.NewCertStore(fs, "/home/user/go/src/github.com/souravbiswassanto/extended-apiserver/certs")
+	store, err := certstore.NewCertStore(fs, certstore.CertDir)
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -48,7 +48,7 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	apiserverStore, err := certstore.NewCertStore(fs, "/home/user/go/src/github.com/souravbiswassanto/extended-apiserver/certs")
+	apiserverStore, err := certstore.NewCertStore(fs, certstore.CertDir)
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -59,7 +59,7 @@ func main() {
 		}
 	}
 	rhCACertPool := x509.NewCertPool()
-	rhStore, err := certstore.NewCertStore(fs, "/home/user/go/src/github.com/souravbiswassanto/extended-apiserver/certs")
+	rhStore, err := certstore.NewCertStore(fs, certstore.CertDir)
 	if err != nil {
 		log.Fatalln(err)
 	}

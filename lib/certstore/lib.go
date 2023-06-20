@@ -14,6 +14,8 @@ import (
 	"k8s.io/client-go/util/cert"
 )
 
+const CertDir = "/home/user/go/src/github.com/souravbiswassanto/extended-apiserver/certs"
+
 type CertStore struct {
 	fs           afero.Fs
 	dir          string

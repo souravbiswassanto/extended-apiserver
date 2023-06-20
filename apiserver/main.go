@@ -23,7 +23,7 @@ func main() {
 	flag.Parse()
 
 	fs := afero.NewOsFs()
-	store, err := certstore.NewCertStore(fs, "/home/user/go/src/github.com/souravbiswassanto/extended-apiserver/certs")
+	store, err := certstore.NewCertStore(fs, certstore.CertDir)
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -51,7 +51,7 @@ func main() {
 	if err != nil {
 		log.Fatalln(err)
 	}
-	rhStore, err := certstore.NewCertStore(fs, "/home/user/go/src/github.com/souravbiswassanto/extended-apiserver/certs")
+	rhStore, err := certstore.NewCertStore(fs, certstore.CertDir)
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -75,7 +75,7 @@ func main() {
 	}
 	easCACertPool := x509.NewCertPool()
 	if proxy {
-		easStore, err := certstore.NewCertStore(fs, "/home/user/go/src/github.com/souravbiswassanto/extended-apiserver/certs")
+		easStore, err := certstore.NewCertStore(fs, certstore.CertDir)
 		if err != nil {
 			log.Fatalln(err)
 		}
